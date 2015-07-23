@@ -77,10 +77,11 @@ def add_to_cart(melon_id):
     # TODO: Finish shopping cart functionality
     #   - use session variables to hold cart list
 
-    session['melon_id'] = melon_id
-    print session['melon_id']
-
-    return "Oops! This needs to be implemented!"
+    session.get('cart',[]).append(melon_id)
+    # session['cart'] = .append(melon_id)
+    print session['cart']
+    flash("Successfully added to car.")
+    return render_template("cart.html")
 
 
 @app.route("/login", methods=["GET"])
